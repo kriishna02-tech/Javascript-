@@ -1,6 +1,6 @@
-// let a = Number(prompt("Number"));
-// let rem  = a%4;
-// console.log(rem);
+let num = Number(prompt("Number"));
+let rem  = num%4;
+console.log(rem);
 
 let a =20;
 let b = 20;
@@ -10,3 +10,7 @@ if(a===b){
 else{
     console.log("Not equal numbers ");
 }
+
+console.log(a);
+a++;
+console.log(a);
