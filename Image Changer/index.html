@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Changer</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #f4f7f6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .gallery-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 320px;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #e2e8f0;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: opacity 0.3s ease;
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px 18px;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            background-color: #2563eb;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        button.secondary {
+            background-color: #475569;
+            box-shadow: 0 4px 10px rgba(71, 85, 105, 0.2);
+        }
+
+        button.secondary:hover {
+            background-color: #334155;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gallery-card">
+        <div class="image-container">
+            <img id="displayImg" src="https://picsum.photos/id/1015/600/400" alt="Display Image">
+        </div>
+
+        <div class="controls">
+            <button id="prevBtn" class="secondary">Previous</button>
+            <button id="randomBtn" class="secondary">Random</button>
+            <button id="nextBtn">Next</button>
+        </div>
+    </div>
+
+<script>
+    let index = 0;
+    const displayImg = document.getElementById("displayImg");
+    const prevBtn = document.getElementById("prevBtn");
+    const randomBtn = document.getElementById("randomBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    const img = [
+        "lordShiva.jpg", 
+        "girl.jpg", 
+        "jeans.jpg", 
+        "krishna.jpg", 
+        "nature.jpg", 
+        "shirt.jpg", 
+        "virat.jpg"
+    ];
+
+   
+    displayImg.src = img[index];
+
+    nextBtn.addEventListener("click", function() {
+        if (index < img.length - 1) {
+            index++;
+        } else {
+            index = 0; 
+        }
+        displayImg.src = img[index];
+    });
+
+    prevBtn.addEventListener("click", function() {
+        if (index > 0) {
+            index--;
+        } else {
+            index = img.length - 1; 
+        }
+        displayImg.src = img[index];
+    });
+
+
+    randomBtn.addEventListener("click", function() {
+        index = Math.floor(Math.random() * img.length);
+        displayImg.src = img[index];
+    });
+</script>
+</body>
+</html>
