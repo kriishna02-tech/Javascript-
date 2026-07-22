@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .quote-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 550px;
+            width: 100%;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .quote-icon {
+            font-size: 48px;
+            color: #764ba2;
+            line-height: 1;
+            margin-bottom: 10px;
+            user-select: none;
+        }
+
+        .quote-text {
+            font-size: 22px;
+            color: #2d3748;
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-text {
+            font-size: 16px;
+            color: #718096;
+            font-style: italic;
+            margin-bottom: 30px;
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        .author-text::before {
+            content: "— ";
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            background-color: #764ba2;
+            color: #ffffff;
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 12px rgba(118, 75, 162, 0.3);
+        }
+
+        button:hover {
+            background-color: #5a3780;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="quote-card">
+        <div class="quote-icon">“</div>
+
+        <p class="quote-text" id="quote">
+            Click the button below to generate a quote!
+        </p>
+
+        <p class="author-text" id="author">
+            Author
+        </p>
+
+        <div class="btn-container">
+            <button id="quoteBtn">New Quote</button>
+        </div>
+    </div>
+
+    <script>
+        const quotes = [
+            "Never Give Up",
+            "Stay Hungry for goals",
+            "Dream Big",
+            "Keep Learning"
+        ];
+        const quote = document.getElementById("quote");
+        const quoteBtn = document.getElementById("quoteBtn");
+        quoteBtn.addEventListener("click" ,  function(){
+            let i = Math.floor(Math.random() * quotes.length);
+            quote.textContent = quotes[i];
+        });
+    </script>
+</body>
+
+</html>
