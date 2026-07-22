@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1 id="heading">Hello</h1>
+
+<button id="btn">Change Text</button>
+<button id="colorBtn">Change Background</button>
+
+<p id="para">
+    JavaScript is awesome!
+</p>
+<button id="toggleBtn">
+    Hide
+</button>
+
+<script >
+    const para= document.getElementById("heading");
+    const btn = document.getElementById("btn");
+    btn.addEventListener("click" , function(){
+        if(para.textContent == "hello javascript"){
+            para.textContent="Hello"
+        }
+        else{
+        para.textContent = "hello javascript";
+        }
+    });
+
+// color btn
+    const colorBtn = document.getElementById("colorBtn");
+    colorBtn.addEventListener("click" ,function(){
+        if(document.body.style.background=="lightblue"){
+            document.body.style.background="white";
+        }
+        else{
+            document.body.style.background="lightblue";
+        }
+    });
+
+    //hide paragraph
+    const parahide = document.getElementById("para");
+    const toggleBtn = document.getElementById("toggleBtn");
+    toggleBtn.addEventListener("click" , function(){
+        if(parahide.style.display =="none"){
+            parahide.style.display = "block";
+            toggleBtn.textContent = "Hide";
+        }
+        else{
+            parahide.style.display = "none";
+            toggleBtn.textContent = "show";
+        }
+    });
+</script>
+
+</body>
+</html>
